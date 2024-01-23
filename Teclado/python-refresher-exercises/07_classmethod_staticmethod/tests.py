@@ -4,7 +4,7 @@ from unittest import TestCase
 class Evaluate(TestCase):
     def test_store_creation(self):
         try:
-            from exercise import Store
+            from solution import Store
         except ImportError:
             self.assertTrue(False,
                             "The class Store doesn't exist or could not be imported. Make sure to have a class called Store, and that it is not inside another block.")
@@ -19,7 +19,7 @@ class Evaluate(TestCase):
 
     def test_add_item(self):
         try:
-            from exercise import Store
+            from solution import Store
         except ImportError:
             self.assertTrue(False,
                             "The class Store doesn't exist or could not be imported. Make sure to have a class called Store, and that it is not inside another block.")
@@ -40,7 +40,7 @@ class Evaluate(TestCase):
 
     def test_stock_price(self):
         try:
-            from exercise import Store
+            from solution import Store
         except ImportError:
             self.assertTrue(False,
                             "The class Store doesn't exist or could not be imported. Make sure to have a class called Store, and that it is not inside another block.")
@@ -56,7 +56,7 @@ class Evaluate(TestCase):
                              store.stock_price()))
 
     def test_franchise(self):
-        from exercise import Store
+        from solution import Store
         store = Store("JL")
 
         self.assertEqual(Store.franchise(store).name, "JL - franchise",
@@ -64,7 +64,7 @@ class Evaluate(TestCase):
                              Store.franchise(store).name))
 
     def test_store_details(self):
-        from exercise import Store
+        from solution import Store
         store = Store("JL")
 
         self.assertEqual(Store.store_details(store), "JL, total stock price: 0",
