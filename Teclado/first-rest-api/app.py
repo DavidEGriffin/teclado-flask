@@ -8,7 +8,7 @@ stores = [
         "items": [
             {
                 "name": "steel chair",
-                "price": 1998.00
+                "price": 19.98
             }
         ]
     }
@@ -33,4 +33,21 @@ def create_item(this_store):
         if store["name"] == this_store:
             store["items"].append(new_item)
             return new_item, 201
-    return {"message":"Store not found"}, 404
+    return {"message": f"Store {this_store} not found"}, 404
+
+@app.get("/store/<string:this_store>")
+def get_store(this_store):
+    for store in stores:
+        if store["name"] == this_store:
+            return store
+    return {"message": f"Store {this_store} not found"}, 404
+
+@app.get("/store/<string:this_store>/<string:this_item>")
+def get_item(this_store, this_item):
+    for store in stores:
+        if store["name"] == this_store:
+            for item in store["items"]:
+                if item["name"] == this_item:
+                    return item
+            return {"message": f"Item {this_item} not found in store {this_store}"}, 404
+    return {"message": f"Store {this_store} not found"}, 404
